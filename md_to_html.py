@@ -149,7 +149,7 @@ def generate_html(data, template_path=None):
     
     # Generate experience HTML
     experience_blocks = []
-    for exp in data['experiences']:
+    for idx, exp in enumerate(data['experiences']):
         achievements = []
         for achievement in exp['achievements']:
             achievement = clean_markdown(achievement)
@@ -162,8 +162,11 @@ def generate_html(data, template_path=None):
         
         achievements_html = '\n                '.join(achievements)
         
+        # Add "current" class to first experience, "previous" to others
+        block_class = "experience-block current" if idx == 0 else "experience-block previous"
+        
         exp_block = f'''
-        <div class="experience-block">
+        <div class="{block_class}">
             <div class="job-header"><span>{exp['company']}</span> <span>{exp['period']}</span></div>
             <div class="job-sub"><span>{exp['title']}</span> <span>{exp['location']}</span></div>
             <ul>
@@ -194,27 +197,30 @@ def generate_html(data, template_path=None):
     <title>Khaja_Md_Sher_E_Alam_Staff_Engineer_CV</title>
     <style>
         body {{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.5; color: #1a1a1a; margin: 0; padding: 40px; background-color: #fff; }}
-        .container {{ max-width: 900px; margin: auto; }}
-        header {{ border-bottom: 3px solid #2c3e50; padding-bottom: 15px; margin-bottom: 25px; }}
+        .container {{ max-width: 720px; margin: auto; }}
+        header {{ border-bottom: 3px solid #2c3e50; padding-bottom: 5px; margin-bottom: 5px; }}
         h1 {{ margin: 0; font-size: 28px; color: #2c3e50; text-transform: uppercase; letter-spacing: 1px; }}
         .contact-info {{ margin-top: 8px; font-size: 14px; color: #444; }}
         .contact-info a {{ color: #2980b9; text-decoration: none; font-weight: bold; }}
         
-        h2 {{ font-size: 18px; border-bottom: 1px solid #bdc3c7; color: #2c3e50; text-transform: uppercase; margin-top: 30px; margin-bottom: 12px; letter-spacing: 1px; }}
+        h2 {{ font-size: 18px; border-bottom: 1px solid #bdc3c7; color: #2c3e50; text-transform: uppercase; margin-top: 15px; margin-bottom: 15px; letter-spacing: 1px; }}
         
-        .highlight-box {{ background-color: #f8f9fa; border-left: 5px solid #2c3e50; padding: 15px; margin-bottom: 20px; }}
+        .highlight-box {{ background-color: #f8f9fa; border-left: 5px solid #2c3e50; padding: 5px; margin-bottom: 5px; }}
         .highlight-box ul {{ margin: 0; padding-left: 20px; list-style-type: square; }}
         .highlight-box li {{ margin-bottom: 5px; font-size: 14px; }}
 
         .job-header {{ display: flex; justify-content: space-between; align-items: baseline; font-weight: bold; font-size: 16px; margin-top: 20px; color: #2c3e50; }}
         .job-sub {{ display: flex; justify-content: space-between; font-style: italic; font-size: 14px; color: #7f8c8d; margin-bottom: 10px; }}
+        .experience-block.previous .job-header {{ margin-top: 10px; }}
+        section:last-child .job-header {{ margin-top: 5px; }}
         
         ul {{ margin-top: 5px; padding-left: 20px; }}
         li {{ margin-bottom: 8px; font-size: 14px; text-align: justify; }}
+        .experience-block.previous li {{ margin-bottom: 2px; }}
         
-        .skills-container {{ display: flex; flex-wrap: wrap; gap: 10px; font-size: 13px; }}
-        .skill-group {{ flex: 1 1 45%; margin-bottom: 10px; }}
-        .skill-group b {{ color: #2c3e50; display: block; margin-bottom: 2px; }}
+        .skills-container {{ display: flex; flex-wrap: wrap; gap: 3px; font-size: 10px; line-height: 1.3; }}
+        .skill-group {{ flex: 1 1 45%; margin-bottom: 2px; }}
+        .skill-group b {{ color: #2c3e50; display: inline; margin-bottom: 0; }}
 
         @media print {{
             body {{ padding: 0; }}

@@ -1,8 +1,7 @@
-## Khaja Md, Sher E Alam
-**Staff Engineer | GenAI | Distributed Systems | Platform Scalability | Technical Strategy**
+## Khaja Md Sher E Alam
+**Staff Engineer | GenAI - Agentic Development| Distributed Systems & Scalability**
 [sajibcse@gmail.com](mailto:sajibcse@gmail.com) | [LinkedIn](https://linkedin.com/in/khaja-md-sher-e-alam)
 Berlin, Germany
-
 ---
 
 ### Staff-Level Impact Summary
@@ -10,16 +9,14 @@ Berlin, Germany
 * **High-Scale State Management:** Optimized RocksDB LSM-trees for 1TB+ distributed state stores, sustaining <5ms lookups under heavy write-amplification. Optimised search price query to 2.5k OTAs with multi layered cache serving 400rps with latency <30ms.
 * **Financial Stewardship:** Delivered $2.4M+ in annual cloud savings through load-aware K8s scheduling and multi-region egress optimization.
 * **Availability:** Achieved 99.99% "four-nines" reliability for global platforms by implementing cell-based isolation and automated failover protocols.
-
 ---
 
 ### Core Technical Expertise
 * **Languages & Frameworks:** Java (21), Go, Kotlin, Spring Boot, gRPC, Protobuf.
 * **Distributed Systems:** Kafka, Kafka-Streams, RabbitMQ/SQS, Redis, Transactional Outbox, Idempotent Consumers.
-* **Data & State Management:** RocksDB (Tuned LSM-trees), PostgreSQL (Partitioned), MySQL, BigQuery.
 * **Infrastructure & Cloud:** Kubernetes (K8), AWS, GCP, Istio (Service Mesh), Terraform, Docker.
+* **Data & State Management:** RocksDB (Tuned LSM-trees), PostgreSQL (Partitioned), MySQL, BigQuery.
 * **Engineering Leadership:** Architecture Guild Leadership, Mentoring, SLA/SLO Modeling.
-
 ---
 
 ### Professional Experience
@@ -48,9 +45,8 @@ Berlin, Germany
 
 #### **NHST Media Group** | Team Lead (Cross functional team)
 *Dhaka, Bangladesh ( Oslo, Norway - Distributed) | 2015 – 2021*
-* **Architecture Modernization:** Directed the migration of a legacy subscription monolith to a modular microservices architecture, increasing delivery cadence by 25%.
-* **Strategic Advisory:** Collaborated with the CTO to define a three-year cloud-adoption roadmap focusing on Prometheus-based SLO tracking.
-* **Leadership & Quality:** Managed and recruited an 8-engineer distributed team; introduced structured incident postmortems.
+* **Architecture Modernization:** Directed the migration of a legacy subscription monolith to a modular microservices architecture, increasing delivery cadence by 25%; introduced structured incident postmortems.
+* **Strategic Advisory & Leadership:** Collaborated with the CTO to define a three-year cloud-adoption roadmap focusing on Prometheus-based SLO tracking. Managed and recruited an 8-engineer distributed team.
 
 #### **StellarVision Pty** | Senior Software Engineer
 *Dhaka, Bangladesh (Sydney, Australia - Distributed) | 2013 – 2015*
@@ -61,7 +57,6 @@ Berlin, Germany
 *Dhaka, Bangladesh | 2012 – 2013*
 * **Java Backend Development:** Developed and maintained Java-based content management system modules using Spring Framework and Hibernate ORM; implemented RESTful APIs for editorial workflow automation.
 * **Technical Foundation Building:** Gained hands-on experience in enterprise software development, database optimisation, and object-oriented design patterns whilst contributing to production deployments for media clients.
-
 ---
 
 ### Education
