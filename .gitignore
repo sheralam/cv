@@ -29,5 +29,11 @@ Thumbs.db
 test_output.html
 khaja_generated.html
 
+# PDF output
+*.pdf
+
+# Pyppeteer Chromium download
+.pyppeteer/
+
 # Logs
 *.log

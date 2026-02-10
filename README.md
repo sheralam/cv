@@ -11,21 +11,25 @@ Generate My CV : https://sheralam.github.io/cv/khaja.html
 - Automatically formats sections (Impact Summary, Technical Expertise, Experience, Education)
 - Handles markdown formatting (bold, italic) and converts to proper HTML
 - Generates clean, readable HTML output
+- Converts HTML to PDF via headless Chrome (Pyppeteer)
 
 ## Requirements
 
 - Python 3.6 or higher
-- No external dependencies required (uses only standard library)
+- For HTML only: no external dependencies (standard library)
+- For PDF generation: Pyppeteer (see Installation)
 
 ## Installation
 
 ```bash
-# Optional: Install dependencies (currently none required)
+# Install dependencies (required for PDF generation)
 make install
 
 # Or with pip directly
 pip install -r requirements.txt
 ```
+
+**Note:** On first run of PDF generation, Pyppeteer will download Chromium (~150MB). This is a one-time setup.
 
 ## Usage
 
@@ -55,6 +59,15 @@ make info
 # Convert custom files
 make convert-custom IN=input.md OUT=output.html
 
+# Convert HTML to PDF (khaja.html → khaja.pdf)
+make pdf
+
+# Generate both HTML and PDF from markdown
+make all-formats
+
+# Convert custom HTML to PDF
+make pdf-custom HTML=input.html PDF=output.pdf
+
 # Open generated HTML in browser (macOS)
 make open
 
@@ -62,7 +75,29 @@ make open
 make watch
 ```
 
-### Direct Python Usage
+### PDF Generation
+
+PDF is generated using Pyppeteer (headless Chrome), which preserves CSS and print media styles:
+
+```bash
+# Generate PDF from existing HTML (runs convert first if needed)
+make pdf
+
+# Generate both HTML and PDF in one step
+make all-formats
+
+# Custom HTML to PDF
+make pdf-custom HTML=my_cv.html PDF=my_cv.pdf
+```
+
+Direct Python usage:
+
+```bash
+python3 html_to_pdf.py khaja.html khaja.pdf
+python3 html_to_pdf.py input.html   # creates input.pdf
+```
+
+### Direct Python Usage (HTML)
 
 You can also run the script directly:
 
@@ -116,7 +151,7 @@ The script expects the markdown file to follow this structure:
 
 ## Output
 
-The script generates a complete HTML file with:
+The Markdown-to-HTML script generates a complete HTML file with:
 - Professional styling (matching the existing template)
 - Responsive design
 - Print-friendly CSS

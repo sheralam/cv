@@ -1,6 +1,8 @@
 # Python dependencies for CV Markdown to HTML Converter
-# This project uses only Python standard library modules
-# No external dependencies required
+
+# PDF generation (html_to_pdf.py)
+pyppeteer>=1.0.2
+websockets>=10.0
 
 # Optional: For future enhancements
 # markdown==3.5.2  # If you want to add more markdown features

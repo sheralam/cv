@@ -219,9 +219,9 @@ def generate_html(data, template_path=None):
         .experience-block.previous li {{ margin-bottom: 2px; }}
         
         .skills-container {{ display: flex; flex-wrap: wrap; gap: 3px; font-size: 10px; line-height: 1.3; }}
-        .skill-group {{ flex: 1 1 45%; margin-bottom: 2px; }}
+        .skill-group {{ flex: 1 1 45%; margin-bottom: 2px; font-size: 12px; }}
         .skill-group b {{ color: #2c3e50; display: inline; margin-bottom: 0; }}
-
+        .education-container h2 {{ margin-top: 5px; margin-bottom: 5px; }}
         @media print {{
             body {{ padding: 0; }}
             .container {{ width: 100%; }}
@@ -262,7 +262,7 @@ def generate_html(data, template_path=None):
 {experience_section}
     </section>
 
-    <section>
+    <section class="education-container">
         <h2>Education</h2>
         {education_section}
     </section>

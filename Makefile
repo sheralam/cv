@@ -1,17 +1,21 @@
-.PHONY: help convert clean install test lint all
+.PHONY: help convert clean install test lint all pdf pdf-custom all-formats
 
 # Variables
 PYTHON := python3
 INPUT_MD := khaja.md
 OUTPUT_HTML := khaja.html
+OUTPUT_PDF := khaja.pdf
 SCRIPT := md_to_html.py
+PDF_SCRIPT := html_to_pdf.py
 
 # Default target
 help:
 	@echo "CV Markdown to HTML Converter - Available targets:"
 	@echo ""
 	@echo "  make convert     - Convert markdown CV to HTML"
-	@echo "  make clean       - Remove generated HTML files"
+	@echo "  make pdf         - Convert HTML to PDF"
+	@echo "  make all-formats - Generate both HTML and PDF from markdown"
+	@echo "  make clean       - Remove generated HTML and PDF files"
 	@echo "  make install     - Install Python dependencies"
 	@echo "  make test        - Test the conversion script"
 	@echo "  make lint        - Check Python code quality"
@@ -21,6 +25,7 @@ help:
 	@echo "Variables:"
 	@echo "  INPUT_MD=$(INPUT_MD)"
 	@echo "  OUTPUT_HTML=$(OUTPUT_HTML)"
+	@echo "  OUTPUT_PDF=$(OUTPUT_PDF)"
 
 # Convert markdown to HTML
 convert:
@@ -39,10 +44,35 @@ convert-custom:
 	@$(PYTHON) $(SCRIPT) $(IN) $(OUT)
 	@echo "✓ Conversion complete!"
 
+# Convert HTML to PDF
+pdf:
+	@if [ ! -f $(OUTPUT_HTML) ]; then \
+		echo "HTML file not found. Running conversion first..."; \
+		$(MAKE) convert; \
+	fi
+	@echo "Converting $(OUTPUT_HTML) to $(OUTPUT_PDF)..."
+	@$(PYTHON) $(PDF_SCRIPT) $(OUTPUT_HTML) $(OUTPUT_PDF)
+	@echo "✓ PDF generated!"
+
+# Convert custom HTML to PDF
+pdf-custom:
+	@if [ -z "$(HTML)" ] || [ -z "$(PDF)" ]; then \
+		echo "Error: Please specify HTML and PDF variables"; \
+		echo "Usage: make pdf-custom HTML=input.html PDF=output.pdf"; \
+		exit 1; \
+	fi
+	@echo "Converting $(HTML) to $(PDF)..."
+	@$(PYTHON) $(PDF_SCRIPT) $(HTML) $(PDF)
+	@echo "✓ PDF generated!"
+
+# Generate both HTML and PDF from markdown
+all-formats: convert pdf
+
 # Clean generated files
 clean:
 	@echo "Cleaning generated files..."
 	@rm -f $(OUTPUT_HTML)
+	@rm -f $(OUTPUT_PDF)
 	@rm -f khaja_generated.html
 	@rm -f *.pyc
 	@rm -rf __pycache__
@@ -119,9 +149,15 @@ info:
 		echo "Input:  $(INPUT_MD) (not found)"; \
 	fi
 	@if [ -f $(OUTPUT_HTML) ]; then \
-		echo "Output: $(OUTPUT_HTML) (exists)"; \
+		echo "HTML:   $(OUTPUT_HTML) (exists)"; \
 		wc -l $(OUTPUT_HTML) | awk '{print "        Lines:", $$1}'; \
 		ls -lh $(OUTPUT_HTML) | awk '{print "        Size:", $$5}'; \
 	else \
-		echo "Output: $(OUTPUT_HTML) (not generated yet)"; \
+		echo "HTML:   $(OUTPUT_HTML) (not generated yet)"; \
+	fi
+	@if [ -f $(OUTPUT_PDF) ]; then \
+		echo "PDF:    $(OUTPUT_PDF) (exists)"; \
+		ls -lh $(OUTPUT_PDF) | awk '{print "        Size:", $$5}'; \
+	else \
+		echo "PDF:    $(OUTPUT_PDF) (not generated yet)"; \
 	fi
