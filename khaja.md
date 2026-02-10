@@ -5,9 +5,9 @@ Berlin, Germany
 ---
 
 ### Staff-Level Impact Summary
-* **Technical Governance:** Leading author of 15+ critical ADRs/RFCs; chaired Architecture Review Boards enforcing service contracts across 3 product domains (25+ engineers).
+* **Technical Governance:** Leading author and reviewer of 15+ critical ADRs/RFCs; as  Architecture Review Board member, enforcing service contracts across multiple product domains.
 * **High-Scale State Management:** Optimized RocksDB LSM-trees for 1TB+ distributed state stores, sustaining <5ms lookups under heavy write-amplification. Optimised search price query to 2.5k OTAs with multi layered cache serving 400rps with latency <30ms.
-* **Financial Stewardship:** Delivered $2.4M+ in annual cloud savings through load-aware K8s scheduling and multi-region egress optimization.
+* **Financial Stewardship:** Delivered $2.4M+ in annual cloud savings through load-aware K8s scheduling and multi-region egress optimization and database instance optimisation.
 * **Availability:** Achieved 99.99% "four-nines" reliability for global platforms by implementing cell-based isolation and automated failover protocols.
 ---
 
@@ -24,9 +24,9 @@ Berlin, Germany
 #### **HelloFresh SE** | Staff Backend Engineer
 *Berlin, Germany | Mar 2024 – Present*
 * **Secure GenAI Enablement:** Designed a spec-driven development pipeline using LLM-assisted code generation, increasing team throughput by 30%.
-* **Technical Strategy Alignment:** Partnered with Product VPs and Directors to translate reliability metrics (SLIs/SLOs) into business KPIs; led GenAI initiatives to improve development velocity by 20% (MoM).
+* **Technical Strategy Alignment:** Partnered with Product & Engineering to translate reliability metrics (SLIs/SLOs) into business KPIs; Align with engineering VP and Director to led GenAI initiatives (mentoring 25+ engineers) to improve development velocity by 20% (MoM).
 * **High-Availability Platform Design:** Architected global referral growth platform with regional partitioning, elevating database resiliency to 99.99% and establishing Hexagonal service architecture.
-* **Financial Infrastructure Optimization:** Reduced annual cloud expenditure by 38% (approx. $2.4M ARR) through load-aware Kubernetes autoscaling and spot-instance migration.
+* **Financial Infrastructure Optimization:** Reduced annual cloud expenditure by 38% (approx. $2.4M ARR) through load-aware Kubernetes autoscaling and database instance optimisation.
 * **Data Consistency Standards:** Standardized the use of Transactional Outbox patterns and idempotent message consumers to solve "dual-write" anomalies.
 * **Cross-Squad Technical Governance:** Established unified data contracts across Loyalty, Growth, and Personalization domains; eliminated 90% of cross-team integration regressions.
 * **Leadership & Mentorship:** Participated in tech hiring interviews, finding the best-fit engineers for several teams across the organisation; mentored multiple junior engineers, improving their technical competencies.

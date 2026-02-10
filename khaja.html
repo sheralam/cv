@@ -11,6 +11,9 @@
         h1 { margin: 0; font-size: 28px; color: #2c3e50; text-transform: uppercase; letter-spacing: 1px; }
         .contact-info { margin-top: 8px; font-size: 14px; color: #444; }
         .contact-info a { color: #2980b9; text-decoration: none; font-weight: bold; }
+        .contact-info .subtitle { display: block; }
+        .contact-info .location { display: inline; font-size: 10px; }
+        .contact-info .contacts { display: inline; font-size: 10px; }
         
         h2 { font-size: 18px; border-bottom: 1px solid #bdc3c7; color: #2c3e50; text-transform: uppercase; margin-top: 15px; margin-bottom: 15px; letter-spacing: 1px; }
         
@@ -25,6 +28,7 @@
         
         ul { margin-top: 5px; padding-left: 20px; }
         li { margin-bottom: 8px; font-size: 14px; text-align: justify; }
+        .experience-block.current li { margin-bottom: 5px; }
         .experience-block.previous li { margin-bottom: 2px; }
         
         .skills-container { display: flex; flex-wrap: wrap; gap: 3px; font-size: 10px; line-height: 1.3; }
@@ -44,9 +48,8 @@
     <header>
         <h1>Khaja Md Sher E Alam</h1>
         <div class="contact-info">
-            <strong>Staff Engineer | GenAI - Agentic Development| Distributed Systems & Scalability</strong><br>
-            Berlin, Germany | <a href="mailto:"></a> | 
-            <a href=""></a>
+            <div class="subtitle"><strong>Staff Engineer | GenAI - Agentic Development| Distributed Systems & Scalability</strong></div>
+            <div class="location">Berlin, Germany</div> <div class="contacts"> | sajibcse@gmail.com | https://linkedin.com/in/khaja-md-sher-e-alam</div>
         </div>
     </header>
 
@@ -54,9 +57,9 @@
         <h2>Staff-Level Impact Summary</h2>
         <div class="highlight-box">
             <ul>
-                <li><strong>Technical Governance:</strong> Leading author of 15+ critical ADRs/RFCs; chaired Architecture Review Boards enforcing service contracts across 3 product domains (25+ engineers).</li>
+                <li><strong>Technical Governance:</strong> Leading author and reviewer of 15+ critical ADRs/RFCs; as  Architecture Review Board member, enforcing service contracts across multiple product domains.</li>
                 <li><strong>High-Scale State Management:</strong> Optimized RocksDB LSM-trees for 1TB+ distributed state stores, sustaining <5ms lookups under heavy write-amplification. Optimised search price query to 2.5k OTAs with multi layered cache serving 400rps with latency <30ms.</li>
-                <li><strong>Financial Stewardship:</strong> Delivered $2.4M+ in annual cloud savings through load-aware K8s scheduling and multi-region egress optimization.</li>
+                <li><strong>Financial Stewardship:</strong> Delivered $2.4M+ in annual cloud savings through load-aware K8s scheduling and multi-region egress optimization and database instance optimisation.</li>
                 <li><strong>Availability:</strong> Achieved 99.99% "four-nines" reliability for global platforms by implementing cell-based isolation and automated failover protocols.</li>
             </ul>
         </div>
@@ -81,9 +84,9 @@
             <div class="job-sub"><span>Staff Backend Engineer</span> <span>Berlin, Germany</span></div>
             <ul>
                 <li><strong>Secure GenAI Enablement:</strong> Designed a spec-driven development pipeline using LLM-assisted code generation, increasing team throughput by 30%.</li>
-                <li><strong>Technical Strategy Alignment:</strong> Partnered with Product VPs and Directors to translate reliability metrics (SLIs/SLOs) into business KPIs; led GenAI initiatives to improve development velocity by 20% (MoM).</li>
+                <li><strong>Technical Strategy Alignment:</strong> Partnered with Product & Engineering to translate reliability metrics (SLIs/SLOs) into business KPIs; Align with engineering VP and Director to led GenAI initiatives (mentoring 25+ engineers) to improve development velocity by 20% (MoM).</li>
                 <li><strong>High-Availability Platform Design:</strong> Architected global referral growth platform with regional partitioning, elevating database resiliency to 99.99% and establishing Hexagonal service architecture.</li>
-                <li><strong>Financial Infrastructure Optimization:</strong> Reduced annual cloud expenditure by 38% (approx. $2.4M ARR) through load-aware Kubernetes autoscaling and spot-instance migration.</li>
+                <li><strong>Financial Infrastructure Optimization:</strong> Reduced annual cloud expenditure by 38% (approx. $2.4M ARR) through load-aware Kubernetes autoscaling and database instance optimisation.</li>
                 <li><strong>Data Consistency Standards:</strong> Standardized the use of Transactional Outbox patterns and idempotent message consumers to solve "dual-write" anomalies.</li>
                 <li><strong>Cross-Squad Technical Governance:</strong> Established unified data contracts across Loyalty, Growth, and Personalization domains; eliminated 90% of cross-team integration regressions.</li>
                 <li><strong>Leadership & Mentorship:</strong> Participated in tech hiring interviews, finding the best-fit engineers for several teams across the organisation; mentored multiple junior engineers, improving their technical competencies.</li>

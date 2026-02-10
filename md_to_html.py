@@ -18,6 +18,7 @@ def parse_markdown_cv(md_content):
         'subtitle': '',
         'contact': '',
         'linkedin': '',
+        'location': '',
         'impact_summary': [],
         'technical_expertise': [],
         'experiences': [],
@@ -35,22 +36,35 @@ def parse_markdown_cv(md_content):
         if line.startswith('## ') and not data['name']:
             data['name'] = line[3:].strip()
             i += 1
-            # Next line should be the subtitle
+            
+            # Line 2: subtitle (job highlight)
             if i < len(lines):
                 subtitle_line = lines[i].strip()
-                # Extract subtitle text before location
-                match = re.match(r'\*\*(.*?)\*\*\s*(.*)', subtitle_line)
+                # Extract subtitle text from bold markers
+                match = re.match(r'\*\*(.*?)\*\*', subtitle_line)
                 if match:
                     data['subtitle'] = match.group(1).strip()
-                    rest = match.group(2).strip()
-                    # Extract email
-                    email_match = re.search(r'\[([^\]]+@[^\]]+)\]', rest)
-                    if email_match:
-                        data['contact'] = email_match.group(1)
-                    # Extract LinkedIn
-                    linkedin_match = re.search(r'\[LinkedIn\]\(([^\)]+)\)', rest)
-                    if linkedin_match:
-                        data['linkedin'] = linkedin_match.group(1)
+                i += 1
+            
+            # Line 3: contact info
+            if i < len(lines):
+                contact_line = lines[i].strip()
+                # Extract email
+                email_match = re.search(r'\[([^\]]+@[^\]]+)\]\(mailto:[^\)]+\)', contact_line)
+                if email_match:
+                    data['contact'] = email_match.group(1)
+                # Extract LinkedIn
+                linkedin_match = re.search(r'\[LinkedIn\]\(([^\)]+)\)', contact_line)
+                if linkedin_match:
+                    data['linkedin'] = linkedin_match.group(1)
+                i += 1
+            
+            # Line 4: location
+            if i < len(lines) and not lines[i].startswith('---'):
+                data['location'] = lines[i].strip()
+                i += 1
+            
+            continue
         
         # Parse sections
         elif line.startswith('### '):
@@ -185,8 +199,8 @@ def generate_html(data, template_path=None):
     
     education_section = '\n        '.join(education_html)
     
-    # Extract location from contact info
-    location = "Berlin, Germany"
+    # Use the parsed location from the markdown
+    location = data['location'] if data['location'] else "Berlin, Germany"
     
     # Generate the full HTML
     html = f'''<!DOCTYPE html>
@@ -202,6 +216,9 @@ def generate_html(data, template_path=None):
         h1 {{ margin: 0; font-size: 28px; color: #2c3e50; text-transform: uppercase; letter-spacing: 1px; }}
         .contact-info {{ margin-top: 8px; font-size: 14px; color: #444; }}
         .contact-info a {{ color: #2980b9; text-decoration: none; font-weight: bold; }}
+        .contact-info .subtitle {{ display: block; }}
+        .contact-info .location {{ display: inline; font-size: 10px; }}
+        .contact-info .contacts {{ display: inline; font-size: 10px; }}
         
         h2 {{ font-size: 18px; border-bottom: 1px solid #bdc3c7; color: #2c3e50; text-transform: uppercase; margin-top: 15px; margin-bottom: 15px; letter-spacing: 1px; }}
         
@@ -216,6 +233,7 @@ def generate_html(data, template_path=None):
         
         ul {{ margin-top: 5px; padding-left: 20px; }}
         li {{ margin-bottom: 8px; font-size: 14px; text-align: justify; }}
+        .experience-block.current li {{ margin-bottom: 5px; }}
         .experience-block.previous li {{ margin-bottom: 2px; }}
         
         .skills-container {{ display: flex; flex-wrap: wrap; gap: 3px; font-size: 10px; line-height: 1.3; }}
@@ -235,9 +253,8 @@ def generate_html(data, template_path=None):
     <header>
         <h1>{data['name']}</h1>
         <div class="contact-info">
-            <strong>{data['subtitle']}</strong><br>
-            {location} | <a href="mailto:{data['contact']}">{data['contact']}</a> | 
-            <a href="{data['linkedin']}">{data['linkedin'].replace('https://', '')}</a>
+            <div class="subtitle"><strong>{data['subtitle']}</strong></div>
+            <div class="location">{location}</div> <div class="contacts"> | {data['contact']} | {data['linkedin']}</div>
         </div>
     </header>
 
