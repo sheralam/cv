@@ -7,7 +7,7 @@ Berlin, Germany
 
 ### Staff-Level Impact Summary
 * **Technical Governance:** Leading author of 15+ critical ADRs/RFCs; chaired Architecture Review Boards enforcing service contracts across 3 product domains (25+ engineers).
-* **High-Scale State Management:** Optimized RocksDB LSM-trees for 1TB+ distributed state stores, sustaining <5ms lookups under heavy write-amplification.
+* **High-Scale State Management:** Optimized RocksDB LSM-trees for 1TB+ distributed state stores, sustaining <5ms lookups under heavy write-amplification. Optimised search price query to 2.5k OTAs with multi layered cache serving 400rps with latency <30ms.
 * **Financial Stewardship:** Delivered $2.4M+ in annual cloud savings through load-aware K8s scheduling and multi-region egress optimization.
 * **Availability:** Achieved 99.99% "four-nines" reliability for global platforms by implementing cell-based isolation and automated failover protocols.
 
@@ -46,14 +46,14 @@ Berlin, Germany
 * **Leadership & Mentorship:** Conducted 15+ technical hiring interviews across multiple teams, evaluating candidates for architecture and system design capabilities.
 * **Operational Excellence:** Active participant in on-call rotation, maintaining system SLOs and writing detailed post-mortems for high-severity incidents.
 
-#### **NHST Media Group** | Team Lead / Acting Engineering Manager
-**Dhaka, Bangladesh | Oslo, Norway (Distributed) | 2015 – 2021*
+#### **NHST Media Group** | Team Lead (Cross functional team)
+*Dhaka, Bangladesh ( Oslo, Norway - Distributed) | 2015 – 2021*
 * **Architecture Modernization:** Directed the migration of a legacy subscription monolith to a modular microservices architecture, increasing delivery cadence by 25%.
 * **Strategic Advisory:** Collaborated with the CTO to define a three-year cloud-adoption roadmap focusing on Prometheus-based SLO tracking.
 * **Leadership & Quality:** Managed and recruited an 8-engineer distributed team; introduced structured incident postmortems.
 
 #### **StellarVision Pty** | Senior Software Engineer
-**Dhaka, Bangladesh | Sydney, Australia (Distributed) | 2013 – 2015*
+*Dhaka, Bangladesh (Sydney, Australia - Distributed) | 2013 – 2015*
 * **Concurrency Optimization:** Diagnosed and remediated thread-contention in Java services, improving throughput by 15%.
 * **Resilient Pipelines:** Built HL7-compliant messaging pipelines with custom retry-backoff logic and Dead Letter Queues (DLQ).
 

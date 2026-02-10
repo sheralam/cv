@@ -2,6 +2,8 @@
 
 This Python script converts a markdown CV file (`khaja.md`) to an HTML file while preserving the professional design template.
 
+Generate My CV : https://sheralam.github.io/cv/khaja.html
+
 ## Features
 
 - Parses structured markdown CV format
