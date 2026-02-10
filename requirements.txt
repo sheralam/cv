@@ -1,0 +1,7 @@
+# Python dependencies for CV Markdown to HTML Converter
+# This project uses only Python standard library modules
+# No external dependencies required
+
+# Optional: For future enhancements
+# markdown==3.5.2  # If you want to add more markdown features
+# beautifulsoup4==4.12.3  # If you want to add HTML validation
